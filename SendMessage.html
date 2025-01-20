@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="pageTitle">Message Sender</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--background-color, #f4f4f4); /* Default to light gray */
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 400px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #555;
+    }
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    textarea {
+      resize: none;
+      height: 80px;
+    }
+    button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 10px;
+      background: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="formTitle">Message Sender</h1>
+    <label for="username" id="usernameLabel">Recipient's Username:</label>
+    <input type="text" id="username" placeholder="Enter the recipient's username">
+    
+    <label for="message" id="messageLabel">Message:</label>
+    <textarea id="message" placeholder="Enter your message"></textarea>
+    
+    <button onclick="sendMessage()" id="sendButtonText">Send</button>
+  </div>
+
+  <script>
+    /* Configuration Variables */
+    const pageTitle = "Message Sender";
+    const formTitle = "Message Sender";
+    const usernameLabel = "Recipient's Username:";
+    const usernamePlaceholder = "Enter the recipient's username";
+    const messageLabel = "Message:";
+    const messagePlaceholder = "Enter your message";
+    const sendButtonText = "Send";
+    const backgroundColor = "#f4f4f4"; // Change to your desired background color
+    const successMessage = "Message sent successfully!";
+    const errorMessage = "Please fill in both fields!";
+
+    /* Apply Configurations */
+    document.getElementById("pageTitle").innerText = pageTitle;
+    document.getElementById("formTitle").innerText = formTitle;
+    document.getElementById("usernameLabel").innerText = usernameLabel;
+    document.getElementById("username").placeholder = usernamePlaceholder;
+    document.getElementById("messageLabel").innerText = messageLabel;
+    document.getElementById("message").placeholder = messagePlaceholder;
+    document.getElementById("sendButtonText").innerText = sendButtonText;
+    document.documentElement.style.setProperty("--background-color", backgroundColor);
+
+    function sendMessage() {
+      const username = document.getElementById('username').value;
+      const message = document.getElementById('message').value;
+
+      if (username && message) {
+        // Show a browser alert to confirm the message was sent
+        alert(successMessage);
+        
+        // Clear all fields
+        document.getElementById('username').value = '';
+        document.getElementById('message').value = '';
+      } else {
+        alert(errorMessage);
+      }
+    }
+  </script>
+</body>
+</html>
